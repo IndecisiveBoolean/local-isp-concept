@@ -19,19 +19,19 @@ function elementCheck(event) { //checks for the element that was clicked.
       mobileMenu.classList.add("open");
     }
   }
-  console.log(event.target);
 }
 
 function handleLogoChange(status) { //changes the logo used for larger or small display sizes.
   let telemediaLogo = document.querySelector(".logo");
   let hamburgerMenu = document.querySelector(".hamburger");
   let mobileMenu = document.querySelector(".nav-bar-container");
+  let logoSource = telemediaLogo.getAttribute("src");
   if (status === true) {
-    telemediaLogo.setAttribute('src', "../images/logos/Telemedia_Logo_black.png")
+    if (telemediaLogo.hasAttribute('src', "../images/logos/Telemedia_Logo_White.png")) telemediaLogo.setAttribute('src', "../images/logos/Telemedia_Logo_black.png");
     hamburgerMenu.classList.remove("hidden");
     mobileMenu.classList.add("closed");
   } else {
-    telemediaLogo.setAttribute('src', "../images/logos/Telemedia_Logo_White.png")
+    if (telemediaLogo.hasAttribute('src', "../images/logos/Telemedia_Logo_black.png")) telemediaLogo.setAttribute('src', "../images/logos/Telemedia_Logo_White.png");
     hamburgerMenu.classList.add("hidden");
     mobileMenu.classList.remove("closed");
     mobileMenu.classList.remove("open");

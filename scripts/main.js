@@ -27,7 +27,6 @@ function handleLogoChange(status, setting) { //changes the logo used for larger 
   let mobileMenu = document.querySelector(".nav-bar-container");
   let logoSource = telemediaLogo.getAttribute("src");
   if (status === true) {
-    // if (telemediaLogo.hasAttribute('src', "../images/logos/Telemedia_Logo_White.png")) telemediaLogo.setAttribute('src', "../images/logos/Telemedia_Logo_black.png");
     if (status === true && setting === "active") telemediaLogo.setAttribute('src', "../images/logos/Telemedia_Logo_black.png");
     hamburgerMenu.classList.remove("hidden");
     mobileMenu.classList.add("closed");
@@ -41,10 +40,11 @@ function handleLogoChange(status, setting) { //changes the logo used for larger 
 
 window.onresize = () => { //watches browser width to call handleLogoChange when logo should be swapped. 
   let pageSizeTrack = 0;
-  if (window.innerWidth <= 908) {
+  if (window.innerWidth <= 908 && pageSizeTrack === 0) {
     pageSizeTrack = 1;
     handleLogoChange(true, "active");
-  } else {
+  } else if  (window.innerWidth >= 908 && pageSizeTrack === 1) {
+    pageSizeTrack = 0;
     handleLogoChange(false, "inactive");
   }
 };

@@ -1,4 +1,5 @@
 const bodyListener = document.querySelector("body");
+let pageSizeTrack = 0;
 
 function elementCheck(event) { //checks for the element that was clicked.
   let hamburgerMenu = document.querySelector(".hamburger");
@@ -39,12 +40,13 @@ function handleLogoChange(status, setting) { //changes the logo used for larger 
 }
 
 window.onresize = () => { //watches browser width to call handleLogoChange when logo should be swapped. 
-  let pageSizeTrack = 0;
-  if (window.innerWidth <= 908 && pageSizeTrack === 0) {
+  if (window.innerWidth < 908 && pageSizeTrack === 0) {
     pageSizeTrack = 1;
     handleLogoChange(true, "active");
-  } else if  (window.innerWidth >= 908 && pageSizeTrack === 1) {
+    console.log(pageSizeTrack);
+  } else if  (window.innerWidth > 908 && pageSizeTrack === 1) {
     pageSizeTrack = 0;
+    console.log(pageSizeTrack);
     handleLogoChange(false, "inactive");
   }
 };

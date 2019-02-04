@@ -21,17 +21,18 @@ function elementCheck(event) { //checks for the element that was clicked.
   }
 }
 
-function handleLogoChange(status) { //changes the logo used for larger or small display sizes.
+function handleLogoChange(status, setting) { //changes the logo used for larger or small display sizes.
   let telemediaLogo = document.querySelector(".logo");
   let hamburgerMenu = document.querySelector(".hamburger");
   let mobileMenu = document.querySelector(".nav-bar-container");
   let logoSource = telemediaLogo.getAttribute("src");
   if (status === true) {
-    if (telemediaLogo.hasAttribute('src', "../images/logos/Telemedia_Logo_White.png")) telemediaLogo.setAttribute('src', "../images/logos/Telemedia_Logo_black.png");
+    // if (telemediaLogo.hasAttribute('src', "../images/logos/Telemedia_Logo_White.png")) telemediaLogo.setAttribute('src', "../images/logos/Telemedia_Logo_black.png");
+    if (status === true && setting === "active") telemediaLogo.setAttribute('src', "../images/logos/Telemedia_Logo_black.png");
     hamburgerMenu.classList.remove("hidden");
     mobileMenu.classList.add("closed");
   } else {
-    if (telemediaLogo.hasAttribute('src', "../images/logos/Telemedia_Logo_black.png")) telemediaLogo.setAttribute('src', "../images/logos/Telemedia_Logo_White.png");
+    if (status === false && setting === "inactive") telemediaLogo.setAttribute('src', "../images/logos/Telemedia_Logo_White.png");
     hamburgerMenu.classList.add("hidden");
     mobileMenu.classList.remove("closed");
     mobileMenu.classList.remove("open");
@@ -39,11 +40,13 @@ function handleLogoChange(status) { //changes the logo used for larger or small 
 }
 
 window.onresize = () => { //watches browser width to call handleLogoChange when logo should be swapped. 
+  let pageSizeTrack = 0;
   if (window.innerWidth <= 908) {
-    handleLogoChange(true);
+    pageSizeTrack = 1;
+    handleLogoChange(true, "active");
   } else {
-    handleLogoChange(false);
-  };
+    handleLogoChange(false, "inactive");
+  }
 };
 
 window.onload = () => { //sets various element attributes to the appropriate values on page load.

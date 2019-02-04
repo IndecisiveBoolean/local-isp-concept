@@ -54,7 +54,7 @@
 
 @keyframes openMenu {
     from {transform: translateY(-160px)}
-    to {transform: translateY(260px)}
+    to {transform: translateY(240px)}
 }
 
 .open {

@@ -1,7 +1,5 @@
 # Rural ISP landing concept
 
-This is a simply concept created for a made up rural ISP called TIER ONE.
+**Q:** What is this project?
 
-
-
-
+**A:** A concept home page for a made up rural ISP called TIER ONE that can viewed [here](https://indecisiveboolean.github.io/localispconcept/)

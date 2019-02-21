@@ -6,15 +6,12 @@ function elementCheck(event) { //checks for the element that was clicked.
   if (event.target != hamburgerMenu && hamburgerMenu.classList.contains("is-active")) {
     hamburgerMenu.classList.remove("is-active");
     mobileMenu.classList.remove("open");
-    mobileMenu.classList.add("closed");
   }
   if (event.target === hamburgerMenu) {
     if (hamburgerMenu.classList.contains("is-active")) {
       hamburgerMenu.classList.remove("is-active");
       mobileMenu.classList.remove("open");
-      mobileMenu.classList.add("closed");
     } else {
-      mobileMenu.classList.remove("closed");
       hamburgerMenu.classList.add("is-active");
       mobileMenu.classList.add("open");
     }
@@ -26,10 +23,8 @@ function handleLogoChange(status, setting) { //changes the logo used for larger 
   let mobileMenu = document.querySelector(".nav-bar-container");
   if (status === true) {
     hamburgerMenu.classList.remove("hidden");
-    mobileMenu.classList.add("closed");
   } else {
     hamburgerMenu.classList.add("hidden");
-    mobileMenu.classList.remove("closed");
     mobileMenu.classList.remove("open");
   }
 }
@@ -48,10 +43,7 @@ window.onload = () => { //sets various element attributes to the appropriate val
   let mobileMenu = document.querySelector(".nav-bar-container");
   if (window.innerWidth <= 908) {
     hamburgerMenu.classList.remove("hidden"); //removes the hidden class so that the hamburger menu displays on page load if mobile size.
-    mobileMenu.classList.add("closed"); //automaticall sets nav menu to closed.
-  } else {
-    mobileMenu.classList.remove("closed");
-  }
+  } 
 };
 
 bodyListener.addEventListener('click', elementCheck);
